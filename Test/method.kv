@@ -19,12 +19,13 @@
     size_hint_y: .3
     on_release:
         app.root.current = "add_account"
+        app.root.clear_home()
 
 <GoHome>:
     text: "Home"
     size_hint_y: .3
     on_release:
-        app.root.refresh_home()
+        app.root.add_home()
         app.root.current = "home"
 
 

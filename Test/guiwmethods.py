@@ -24,9 +24,9 @@ class WindowManager(ScreenManager):
 
         self.add_widget(hs)
 
-    def refresh_home(self):
-        self.remove_widget(self.HomeScreen())
-        self.add_home()
+    def clear_home(self):
+        print(self.children[1])
+        self.remove_widget(self.children[1])
 
 
 class HomeScreen(Screen):
@@ -96,6 +96,7 @@ class MethodApp(App):
         wm = WindowManager()
 
         wm.populate()
+        print(wm.children)
 
         return wm
 

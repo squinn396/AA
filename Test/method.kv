@@ -1,0 +1,83 @@
+<WindowManager>:
+
+<RV>:
+    viewclass: 'RVButton'
+    RecycleBoxLayout:
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<RVButton>:
+    on_release:
+        app.root.current = 'account'
+        root.build_screen(self.text)
+
+<GoAddAccount>:
+    text: "Add Account"
+    size_hint_y: .3
+    on_release:
+        app.root.current = "add_account"
+
+<GoHome>:
+    text: "Home"
+    size_hint_y: .3
+    on_release:
+        app.root.refresh_home()
+        app.root.current = "home"
+
+
+
+
+<HomeScreen>:
+    name: 'home'
+
+
+<AccountScreen>:
+    name: 'account'
+    Label:
+        text: ''
+    Account:
+        cols: 1
+        Button:
+            text: 'Build'
+            on_press: self.parent.build('Checking')
+
+
+<Account>:
+    cols: 1
+
+<AddAccountScreen>:
+    name: 'add_account'
+
+    na_name: new_account_name
+    na_balance: new_account_balance
+
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Add Account"
+        GridLayout:
+            cols: 2
+            Label:
+                text: "Account Name"
+            TextInput:
+                id: new_account_name
+                multiline: False
+            Label:
+                text: "Balance"
+            TextInput:
+                id: new_account_balance
+                multiline: False
+        Button:
+            text: "Submit"
+            on_press: root.add_a()
+        GoHome:
+
+
+
+
+
+
+

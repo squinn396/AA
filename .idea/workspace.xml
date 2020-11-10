@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="Refresh home screen after add account">
+    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="Add Account Screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/Test/data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/guiwmethods.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test/guiwmethods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/method.kv" beforeDir="false" afterPath="$PROJECT_DIR$/Test/method.kv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/data.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.kv" beforeDir="false" afterPath="$PROJECT_DIR$/gui.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
     </list>
@@ -205,13 +201,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604688503893</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Account Screen">
+      <created>1605049226975</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1605049226975</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Refresh home screen after add account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refresh home screen after add account" />
+    <MESSAGE value="Add Account Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Account Screen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603408946208">
@@ -234,31 +238,31 @@
       <screen x="0" y="23" width="1440" height="810" />
     </state>
     <state x="728" y="37" key="Github.UntrackedFilesDialog/0.23.1440.810@0.23.1440.810" timestamp="1604685782583" />
-    <state width="1419" height="237" key="GridCell.Tab.0.bottom" timestamp="1605048959336">
+    <state width="1419" height="237" key="GridCell.Tab.0.bottom" timestamp="1605050925306">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="237" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605048959336" />
+    <state width="1419" height="237" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605050925306" />
     <state width="798" height="237" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1604688342658" />
     <state width="1153" height="245" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
-    <state width="1419" height="237" key="GridCell.Tab.0.center" timestamp="1605048959335">
+    <state width="1419" height="237" key="GridCell.Tab.0.center" timestamp="1605050925305">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="237" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605048959335" />
+    <state width="1419" height="237" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605050925305" />
     <state width="798" height="237" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1604688342658" />
     <state width="1153" height="245" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1604361375139" />
-    <state width="1419" height="237" key="GridCell.Tab.0.left" timestamp="1605048959334">
+    <state width="1419" height="237" key="GridCell.Tab.0.left" timestamp="1605050925304">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="237" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605048959334" />
+    <state width="1419" height="237" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605050925304" />
     <state width="798" height="237" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1604688342657" />
     <state width="1153" height="245" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1604361375138" />
-    <state width="1419" height="237" key="GridCell.Tab.0.right" timestamp="1605048959336">
+    <state width="1419" height="237" key="GridCell.Tab.0.right" timestamp="1605050925305">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="237" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605048959336" />
+    <state width="1419" height="237" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605050925305" />
     <state width="798" height="237" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1604688342658" />
     <state width="1153" height="245" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
@@ -290,6 +294,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="554" y="191" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1440.900@0.0.1440.900" timestamp="1604685603523" />
+    <state x="508" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605049206781">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="508" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1605049206781" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1604015485944">
       <screen x="0" y="23" width="1440" height="813" />
     </state>

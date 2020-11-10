@@ -21,6 +21,7 @@
 
 <RVButton>:
     on_release:
+        root.parent.parent.parent.parent.manager.transition.direction = "left"
         app.root.add_account_screen(self.text)
         app.root.current = 'account'
         app.root.clear_home_screen()
@@ -29,8 +30,7 @@
     text: "Add Account"
     size_hint_y: .3
     on_release:
-        print(app.root.children[0])
-        print(app.root.children[0].name)
+        root.parent.parent.manager.transition.direction = "up"
         app.root.current = "add_account"
         app.root.clear_home_screen()
 
@@ -38,7 +38,16 @@
     text: "Home"
     size_hint_y: .3
     on_release:
-        #print(app.root.current)
+        root.parent.parent.manager.transition.direction = "right"
+        app.root.add_home_screen()
+        app.root.current = "home"
+        app.root.clear_account_screen()
+
+<GoHomeAA>:
+    text: "Home "
+    size_hint_y: .3
+    on_release:
+        root.parent.parent.manager.transition.direction = "down"
         app.root.add_home_screen()
         app.root.current = "home"
         app.root.clear_account_screen()
@@ -82,7 +91,7 @@
         Button:
             text: "Submit"
             on_press: root.add_a()
-        GoHome:
+        GoHomeAA:
 
 <Popup>:
     Button:

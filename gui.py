@@ -35,7 +35,7 @@ class WindowManager(ScreenManager):
 
         header = GridLayout(cols=1, size_hint=(.2, .2))
         account = Label(text=account_name)
-        balance = Label(text=f"${str(get_account(get_account_no(account_name))['balance'])}" )
+        balance = Label(text=f"${str(get_account(get_account_no(account_name))['balance'])}")
         header.add_widget(account)
         header.add_widget(balance)
 
@@ -114,10 +114,7 @@ class Allocations(RecycleView):
 
 
 class Account(GridLayout):
-    def build(self, button_text):
-        header = Label(text=button_text)
-        self.add_widget(header)
-        print(get_allocations(get_account_no(button_text)))
+    pass
 
 
 # navigation
@@ -128,6 +125,10 @@ class GoAddAccount(Button):
 
 
 class GoHome(Button):
+    pass
+
+
+class GoHomeAA(Button):
     pass
 
 

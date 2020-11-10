@@ -1,7 +1,5 @@
 <WindowManager>:
-    HomeScreen:
-    AddAccountScreen:
-    AccountScreen:
+    id: wm
 
 <RV>:
     viewclass: 'RVButton'
@@ -12,43 +10,54 @@
         height: self.minimum_height
         orientation: 'vertical'
 
+<Allocations>:
+    viewclass: 'Button'
+    RecycleBoxLayout:
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
 <RVButton>:
     on_release:
+        app.root.add_account_screen(self.text)
         app.root.current = 'account'
-        root.build_screen(self.text)
+        app.root.clear_home_screen()
+
+<GoAddAccount>:
+    text: "Add Account"
+    size_hint_y: .3
+    on_release:
+        print(app.root.children[0])
+        print(app.root.children[0].name)
+        app.root.current = "add_account"
+        app.root.clear_home_screen()
+
+<GoHome>:
+    text: "Home"
+    size_hint_y: .3
+    on_release:
+        #print(app.root.current)
+        app.root.add_home_screen()
+        app.root.current = "home"
+        app.root.clear_account_screen()
+
 
 
 <HomeScreen>:
+    id: 'home'
     name: 'home'
-    BoxLayout:
-        orientation: 'vertical'
-        Label:
-            text: "Welcome"
-            size_hint_y: .2
-        RV:
-            id: rv
-        Button:
-            text: "Add Account"
-            size_hint_y: .3
-            on_release:
-                app.root.current = "add_account"
 
 
 <AccountScreen>:
+    id: 'account'
     name: 'account'
-    Label:
-        text: ''
-    Account:
-        cols: 1
-        Button:
-            text: 'Build'
-            on_press: self.parent.build('Checking')
 
 
-<Account>:
-    cols: 1
 
 <AddAccountScreen>:
+    id: 'add_account'
     name: 'add_account'
 
     na_name: new_account_name
@@ -73,11 +82,12 @@
         Button:
             text: "Submit"
             on_press: root.add_a()
-        Button:
-            text: "Home"
-            on_press:
-                app.root.transition.direction = "left"
-                app.root.current = "home"
+        GoHome:
+
+<Popup>:
+    Button:
+        text: "Close"
+        on_release: root.dismiss()
 
 
 

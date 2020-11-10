@@ -11,8 +11,8 @@
 
 <RVButton>:
     on_release:
+        app.root.add_account_screen(self.text)
         app.root.current = 'account'
-        root.build_screen(self.text)
 
 <GoAddAccount>:
     text: "Add Account"
@@ -29,25 +29,13 @@
         app.root.current = "home"
 
 
-
-
 <HomeScreen>:
     name: 'home'
 
 
 <AccountScreen>:
     name: 'account'
-    Label:
-        text: ''
-    Account:
-        cols: 1
-        Button:
-            text: 'Build'
-            on_press: self.parent.build('Checking')
 
-
-<Account>:
-    cols: 1
 
 <AddAccountScreen>:
     name: 'add_account'

@@ -28,6 +28,17 @@ class WindowManager(ScreenManager):
         print(self.children[1])
         self.remove_widget(self.children[1])
 
+    def add_account_screen(self, account_name):
+        a = AccountScreen()
+        a.build(account_name)
+
+        self.add_widget(a)
+
+        print('Account Screen Created!')
+
+
+# screens
+
 
 class HomeScreen(Screen):
     def populate(self):
@@ -46,15 +57,19 @@ class HomeScreen(Screen):
 class AccountScreen(Screen):
     def build(self, button_text):
         header = Label(text=button_text)
+
+        allocations = Allocations(button_text)
+
+        home_button = GoHome()
+
         self.add_widget(header)
+        self.add_widget(allocations)
 
+        if self.children[0] == []:
+            btn = Button(text='No allocations for this account')
+            self.add_widget(btn)
 
-class Account(GridLayout):
-    def build(self, button_text):
-        header = Label(text=button_text)
-        self.add_widget(header)
-        print(get_allocations(get_account_no(button_text)))
-
+        self.add_widget(home_button)
 
 class AddAccountScreen(Screen):
     na_name = ObjectProperty(None)
@@ -67,17 +82,35 @@ class AddAccountScreen(Screen):
         self.na_balance.text = ""
 
 
-class RV(RecycleView):
+# screen widgets
 
+
+class RV(RecycleView):
     def __init__(self, **kwargs):
         super(RV, self).__init__(**kwargs)
         self.data = [{'text': account} for account in view_accounts2()]
 
 
-class RVButton(Button):
-    def build_screen(self, account_name):
-        AS = Account()
-        Account.build(AS, button_text=account_name)
+class Allocations(RecycleView):
+    def __init__(self, account_name, **kwargs):
+        super(Allocations, self).__init__(**kwargs)
+        self.account_name = account_name
+
+        if get_allocations(get_account_no(self.account_name)):
+            self.data = [{'text': allocation} for allocation in get_allocations(get_account_no(self.account_name))]
+
+        else:
+            self.data = []
+
+
+class Account(GridLayout):
+    def build(self, button_text):
+        header = Label(text=button_text)
+        self.add_widget(header)
+        print(get_allocations(get_account_no(button_text)))
+
+
+# navigation
 
 
 class GoAddAccount(Button):
@@ -86,6 +119,13 @@ class GoAddAccount(Button):
 
 class GoHome(Button):
     pass
+
+
+class RVButton(Button):
+    pass
+
+
+# app
 
 
 class MethodApp(App):

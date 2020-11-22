@@ -21,7 +21,7 @@
 
 <GoAddAccount>:
     text: "Add Account"
-    size_hint_y: .3
+    size_hint_y: .2
     on_release:
         root.parent.parent.manager.transition.direction = "up"
         app.root.current = "add_account"
@@ -29,7 +29,7 @@
 
 <AccountGoHome>:
     text: "Home"
-    size_hint_y: .3
+    size_hint_y: .27
     on_release:
         root.parent.parent.manager.transition.direction = "right"
         app.root.add_home_screen()
@@ -55,11 +55,25 @@
         #app.root.clear_account_screen()
 
 <AddAllocationGrid>:
+    id: add_allocation_grid
     cols: 2
+    size_hint_y: .4
     Button:
         text: "Add Allocation"
-        on_release: root.make_info()
+        on_release:
+            print(f'AddAllocationGrid.parent.parent: {root.parent.parent}')
+            root.make_info()
 
+<AddAllocationSubmit>:
+    text: "Submit"
+    size_hint_x: .5
+    on_release:
+        #root.parent.create()
+        print(f'Parent: {root.parent.parent.parent}')
+        print(root.parent.parent.parent.ids.keys())
+
+        #app.root.clear_account_screen()
+        #app.root.add_account_screen("Test") # need to get account name!!!!
 
 
 
@@ -98,6 +112,7 @@
                 id: new_account_balance
                 multiline: False
         Button:
+            size_hint_y: .2
             text: "Submit"
             on_press: root.add_a()
         AddAccountGoHome:

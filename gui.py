@@ -35,7 +35,7 @@ class WindowManager(ScreenManager):
 
         layout = GridLayout(cols=1)
 
-        header = GridLayout(cols=1, size_hint=(.2, .2))
+        header = GridLayout(cols=1, size_hint=(.2, .2), id='header')
         account = Label(text=account_name)
         balance = Label(text=f"${str(get_account(get_account_no(account_name))['balance'])}")
         header.add_widget(account)
@@ -43,31 +43,28 @@ class WindowManager(ScreenManager):
 
         # allocations = Allocations(account_name)
         home_button = AccountGoHome()
+        add_allocation_grid = AddAllocationGrid()
 
         layout.add_widget(header)
 
-        ag = GridLayout(cols=1)
-        layout.add_widget(ag)
+        allocations_grid= GridLayout(cols=1)
+        layout.add_widget(allocations_grid)
 
         allocations = get_allocations(get_account_no(account_name))
         print(allocations)
 
         if not allocations:
-            g = GridLayout(cols=1)
-            lab = Label(text='There are no allocations')
-            b = AddAllocationGrid()
-
-            g.add_widget(lab)
-            g.add_widget(b)
-            ag.add_widget(g)
+            lab = Label(text='There are no allocations')  # adjust size
+            allocations_grid.add_widget(lab)
         else:
             for allocation in allocations:
                 g = GridLayout(cols=1)
                 b = ARVButton(text=allocation['name'])
 
                 g.add_widget(b)
-                ag.add_widget(g)
+                allocations_grid.add_widget(g)
 
+        layout.add_widget(add_allocation_grid)
         layout.add_widget(home_button)
 
         a.add_widget(layout)
@@ -211,19 +208,41 @@ class ARVButton(Button):
 
 
 class AddAllocationGrid(GridLayout):
+    def __init__(self):
+        super(AddAllocationGrid, self).__init__()
+        self.an_t = None
+        self.ab_t = None
+        self.ag_t = None
+        #self.parent_account = self.p
+
     def make_info(self):
         self.clear_widgets()
+
+        layout = GridLayout(cols=2)
         an = Label(text="Allocation Name")
-        an_t = TextInput(id="allocation_name")
+        self.an_t = TextInput(id="allocation_name")
         ab = Label(text="Balance")
-        ab_t = TextInput(id="allocation_balance")
+        self.ab_t = TextInput(id="allocation_balance")
+        ag = Label(text="Goal")
+        self. ag_t = TextInput(id="allocation_goal")
+        submit = AddAllocationSubmit()
 
-        self.add_widget(an)
-        self.add_widget(an_t)
-        self.add_widget(ab)
-        self.add_widget(ab_t)
+        layout.add_widget(an)
+        layout.add_widget(self.an_t)
+        layout.add_widget(ab)
+        layout.add_widget(self.ab_t)
+        layout.add_widget(ag)
+        layout.add_widget(self.ag_t)
+        self.add_widget(layout)
+        self.add_widget(submit)
+
+    def create(self):
+        print()
+        add_allocation(name=self.an_t.text, goal=self.ag_t.text, balance=self.ab_t.text, account_id=get_account_no("Test"))
 
 
+class AddAllocationSubmit(Button):
+    pass
 
 
 # app

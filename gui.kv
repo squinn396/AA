@@ -10,21 +10,14 @@
         height: self.minimum_height
         orientation: 'vertical'
 
-<Allocations>:
-    viewclass: 'Button'
-    RecycleBoxLayout:
-        default_size: None, dp(56)
-        default_size_hint: 1, None
-        size_hint_y: None
-        height: self.minimum_height
-        orientation: 'vertical'
-
 <RVButton>:
     on_release:
-        root.parent.parent.parent.parent.manager.transition.direction = "left"
-        app.root.add_account_screen(self.text)
+        root.parent.parent.parent.parent.manager.transition.direction = "left" # transition left
+        app.root.add_account_screen(self.text) #creates account screen for the account represented by the button
         app.root.current = 'account'
         app.root.clear_home_screen()
+
+
 
 <GoAddAccount>:
     text: "Add Account"
@@ -34,7 +27,7 @@
         app.root.current = "add_account"
         app.root.clear_home_screen()
 
-<GoHome>:
+<AccountGoHome>:
     text: "Home"
     size_hint_y: .3
     on_release:
@@ -43,7 +36,7 @@
         app.root.current = "home"
         app.root.clear_account_screen()
 
-<GoHomeAA>:
+<AddAccountGoHome>:
     text: "Home "
     size_hint_y: .3
     on_release:
@@ -51,6 +44,22 @@
         app.root.add_home_screen()
         app.root.current = "home"
         app.root.clear_account_screen()
+
+
+<AllocationGoAccount>:
+    on_release:
+        #root.parent.parent.manager.transition.direction = "down"
+        print(root)
+        #app.root.add_account_screen()
+        #app.root.current = "account"
+        #app.root.clear_account_screen()
+
+<AddAllocationGrid>:
+    cols: 2
+    Button:
+        text: "Add Allocation"
+        on_release: root.make_info()
+
 
 
 
@@ -91,12 +100,15 @@
         Button:
             text: "Submit"
             on_press: root.add_a()
-        GoHomeAA:
+        AddAccountGoHome:
 
 <Popup>:
     Button:
         text: "Close"
         on_release: root.dismiss()
+
+
+
 
 
 

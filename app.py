@@ -195,4 +195,5 @@ def delete_account_info():
         print(clear)
         home()
 
-#home()
+if __name__ == "__main__":
+    home()

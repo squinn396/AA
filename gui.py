@@ -47,7 +47,7 @@ class WindowManager(ScreenManager):
 
         layout.add_widget(header)
 
-        allocations_grid= GridLayout(cols=1)
+        allocations_grid= GridLayout(rows=1)
         layout.add_widget(allocations_grid)
 
         allocations = get_allocations(get_account_no(account_name))
@@ -58,12 +58,14 @@ class WindowManager(ScreenManager):
             allocations_grid.add_widget(lab)
         else:
             for allocation in allocations:
-                g = GridLayout(cols=1)
-                b = ARVButton(text=allocation['name'])
+                g = AllocationGrid(cols=1, size_hint_y=.3)
+                b = AllocationButton(text=allocation['name'])
 
                 g.add_widget(b)
                 allocations_grid.add_widget(g)
+        account_info = GridLayout(cols=1, size_hint_y=1)
 
+        layout.add_widget(account_info)
         layout.add_widget(add_allocation_grid)
         layout.add_widget(home_button)
 
@@ -76,22 +78,6 @@ class WindowManager(ScreenManager):
     def clear_account_screen(self):
         if self.children[1].name != "add_account":
             self.remove_widget(self.children[1])
-
-    def add_allocation_screen(self, allocation_name: str):
-        al = AllocationScreen(allocation_name)
-
-        al_info = get_allocation(allocation_name)
-
-        header = GridLayout(Label(text=str(al_info)), cols=1)
-
-        go_ac = AllocationGoAccount()
-
-        al.add_widget(header)
-        al.add_widget(go_ac)
-
-        self.add_widget(al)
-
-        print('Allocation screen has been created.')
 
 
 # screens
@@ -146,30 +132,11 @@ class RV(RecycleView):
         self.data = [{'text': account} for account in view_accounts2()]
 
 
-class ARV(RecycleView):
-    def __init__(self, account_name, **kwargs):
-        super(ARV, self).__init__(**kwargs)
-        if get_allocations(get_account_no(self.account_name)):
-            self.data = [{'text': allocation['name']} for allocation in
-                         get_allocations(get_account_no(account_name))]
-
-        else:
-            self.data = []
-
 
 class AllocationGrid(GridLayout):
-    g = 0
-
-    @staticmethod
-    def gen(account):
-        num = 0
-        allocations = get_allocations(get_account_no(account))
-        while True:
-            yield allocations[num]
-            num += 1
-
-    def get_parent(self):
-        return self.parent
+    def options(self):
+        op = Label(text='Options')
+        self.add_widget(op)
 
 
 class Account(GridLayout):
@@ -199,11 +166,8 @@ class RVButton(Button):
     pass
 
 
-class ARV(Button):
-    pass
 
-
-class ARVButton(Button):
+class AllocationButton(Button):
     pass
 
 

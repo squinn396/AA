@@ -100,7 +100,7 @@ def view_accounts2():
 def view_accounts():
     accounts = get_all_accounts()
     print(clear)
-    if accounts == []:
+    if not accounts:
         print(f'THERE ARE NO ACCOUNTS')
     else:
         for account in accounts:
@@ -194,6 +194,7 @@ def delete_account_info():
         input()
         print(clear)
         home()
+
 
 if __name__ == "__main__":
     home()

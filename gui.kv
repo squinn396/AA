@@ -1,6 +1,11 @@
 <WindowManager>:
     id: wm
 
+#=================================================HOME======================================================
+<HomeScreen>:
+    id: 'home'
+    name: 'home'
+
 <RV>:
     viewclass: 'RVButton'
     RecycleBoxLayout:
@@ -17,8 +22,6 @@
         app.root.current = 'account'
         app.root.clear_home_screen()
 
-
-
 <GoAddAccount>:
     text: "Add Account"
     size_hint_y: .2
@@ -26,6 +29,15 @@
         root.parent.parent.manager.transition.direction = "up"
         app.root.current = "add_account"
         app.root.clear_home_screen()
+
+#=================================================ACCOUNT======================================================
+<AccountScreen>:
+    id: 'account'
+    name: 'account'
+
+
+<AllocationButton>:
+    on_release: root.parent.options()
 
 <AccountGoHome>:
     text: "Home"
@@ -35,24 +47,6 @@
         app.root.add_home_screen()
         app.root.current = "home"
         app.root.clear_account_screen()
-
-<AddAccountGoHome>:
-    text: "Home "
-    size_hint_y: .3
-    on_release:
-        root.parent.parent.manager.transition.direction = "down"
-        app.root.add_home_screen()
-        app.root.current = "home"
-        app.root.clear_account_screen()
-
-
-<AllocationGoAccount>:
-    on_release:
-        #root.parent.parent.manager.transition.direction = "down"
-        print(root)
-        #app.root.add_account_screen()
-        #app.root.current = "account"
-        #app.root.clear_account_screen()
 
 <AddAllocationGrid>:
     id: add_allocation_grid
@@ -76,18 +70,10 @@
         #app.root.add_account_screen("Test") # need to get account name!!!!
 
 
-
-<HomeScreen>:
-    id: 'home'
-    name: 'home'
+<AllocationGrid>:
 
 
-<AccountScreen>:
-    id: 'account'
-    name: 'account'
-
-
-
+#=================================================ADD ACCOUNT======================================================
 <AddAccountScreen>:
     id: 'add_account'
     name: 'add_account'
@@ -116,6 +102,16 @@
             text: "Submit"
             on_press: root.add_a()
         AddAccountGoHome:
+
+<AddAccountGoHome>:
+    text: "Home "
+    size_hint_y: .3
+    on_release:
+        root.parent.parent.manager.transition.direction = "down"
+        app.root.add_home_screen()
+        app.root.current = "home"
+        app.root.clear_account_screen()
+
 
 <Popup>:
     Button:

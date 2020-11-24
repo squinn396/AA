@@ -37,7 +37,9 @@
 
 
 <AllocationButton>:
-    on_release: root.parent.options()
+    on_release:
+        root.parent.set_btn_color()
+        root.background_color= [0,1,0,1]
 
 <AccountGoHome>:
     text: "Home"

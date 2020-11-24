@@ -33,7 +33,7 @@ class WindowManager(ScreenManager):
     def add_account_screen(self, account_name: str):
         a = AccountScreen(an=account_name)
 
-        layout = GridLayout(cols=1)
+        layout = GridLayout(cols=1) # Change to Float Layout
 
         header = GridLayout(cols=1, size_hint=(.2, .2), id='header')
         account = Label(text=account_name)
@@ -47,7 +47,7 @@ class WindowManager(ScreenManager):
 
         layout.add_widget(header)
 
-        allocations_grid= GridLayout(rows=1)
+        allocations_grid = GridLayout(rows=1, size_hint_y=.2)
         layout.add_widget(allocations_grid)
 
         allocations = get_allocations(get_account_no(account_name))
@@ -57,6 +57,10 @@ class WindowManager(ScreenManager):
             lab = Label(text='There are no allocations')  # adjust size
             allocations_grid.add_widget(lab)
         else:
+            hb = AllocationButton(text='Home', background_color=[0, 1, 0, 1])
+            hbg = AllocationGrid(cols=1, size_hint_y=.3)
+            hbg.add_widget(hb)
+            allocations_grid.add_widget(hbg)  # this is a confusing name, change
             for allocation in allocations:
                 g = AllocationGrid(cols=1, size_hint_y=.3)
                 b = AllocationButton(text=allocation['name'])
@@ -132,11 +136,10 @@ class RV(RecycleView):
         self.data = [{'text': account} for account in view_accounts2()]
 
 
-
 class AllocationGrid(GridLayout):
-    def options(self):
-        op = Label(text='Options')
-        self.add_widget(op)
+    def set_btn_color(self):
+        for child in self.parent.children:
+            print(child.children[0].reset_color())
 
 
 class Account(GridLayout):
@@ -166,9 +169,9 @@ class RVButton(Button):
     pass
 
 
-
 class AllocationButton(Button):
-    pass
+    def reset_color(self):
+        self.background_color = [1, 1, 1, 1]
 
 
 class AddAllocationGrid(GridLayout):

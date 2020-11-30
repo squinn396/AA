@@ -15,6 +15,7 @@ from database import *
 
 # ======================================================Screen Manager=======================
 
+
 class WindowManager(ScreenManager):
     def populate(self):
         self.add_home_screen()
@@ -33,53 +34,11 @@ class WindowManager(ScreenManager):
 
     def add_account_screen(self, account_name: str):
         a = AccountScreen(an=account_name)
-
-        layout = GridLayout(cols=1)  # Change to Float Layout
-
-        header = GridLayout(cols=1, size_hint=(.2, .2), id='header')
-        account = Label(text=account_name)
-        balance = Label(text=f"${str(get_account(get_account_no(account_name))['balance'])}")
-        header.add_widget(account)
-        header.add_widget(balance)
-
-        # allocations = Allocations(account_name)
-        home_button = AccountGoHome()
-        add_allocation_grid = AddAllocationGrid()
-
-        layout.add_widget(header)
-
-        allocations_grid = GridLayout(rows=1, size_hint_y=.2)
-        layout.add_widget(allocations_grid)
-
-        allocations = get_allocations(get_account_no(account_name))
-        print(allocations)
-
-        if not allocations:
-            lab = Label(text='There are no allocations')  # adjust size
-            allocations_grid.add_widget(lab)
-        else:
-            hb = AllocationButton(text='Home', background_color=[0, 1, 0, 1], id='home')
-            hbg = AllocationGrid(cols=1, size_hint_y=.3)
-            hbg.add_widget(hb)
-            allocations_grid.add_widget(hbg)  # this is a confusing name, change
-            for allocation in allocations:
-                g = AllocationGrid(cols=1, size_hint_y=.3)
-                b = AllocationButton(text=allocation['name'])
-
-                g.add_widget(b)
-                allocations_grid.add_widget(g)
-        account_info = GridLayout(cols=1, size_hint_y=1)
-
-        layout.add_widget(account_info)
-        layout.add_widget(add_allocation_grid)
-        layout.add_widget(home_button)
-
-        a.add_widget(layout)
+        a.populate()
 
         self.add_widget(a)
 
         print('Account Screen Created!')
-
 
     def clear_account_screen(self):
         if self.children[1].name != "add_account":
@@ -150,6 +109,46 @@ class AccountScreen(Screen):
         super().__init__()
         self.an = an
 
+    def populate(self):
+        layout = GridLayout(cols=1)  # Change to Float Layout
+
+        header = GridLayout(cols=1, size_hint=(.2, .2), id='header')
+        account = Label(text=self.an)
+        balance = Label(text=f"${str(get_account(self.an)['balance'])}")
+
+        header.add_widget(account)
+        header.add_widget(balance)
+
+        layout.add_widget(header)
+
+        # allocations = Allocations(account_name)
+        home_button = AccountGoHome()
+        add_allocation_grid = AddAllocationGrid()
+
+        allocations_grid = AllocationGrid(rows=1, size_hint_y=.2)
+
+        allocations = get_allocations(get_account_no(self.an))
+        print(allocations)
+
+        if not allocations:
+            lab = Label(text='There are no allocations')  # adjust size
+            allocations_grid.add_widget(lab)
+        else:
+            hb = AllocationButton(text='Home', background_color=[0, 1, 0, 1], id='home')
+            allocations_grid.add_widget(hb)  # this is a confusing name, change
+            for allocation in allocations:
+                b = AllocationButton(text=allocation['name'])
+                allocations_grid.add_widget(b)
+
+        account_info = GridLayout(cols=1, size_hint_y=1)
+        account_info.add_widget(Label(text='Allocation summary'))
+
+        layout.add_widget(allocations_grid)
+        layout.add_widget(account_info)
+        layout.add_widget(add_allocation_grid)
+        layout.add_widget(home_button)
+        self.add_widget(layout)
+
 
 class Account(GridLayout):
     pass
@@ -161,19 +160,10 @@ class AccountGoHome(Button):
 
 # =======================================================Allocation=================================
 
-
-class AllocationScreen(Screen):
-    pass
-
-
 class AllocationGrid(GridLayout):
     def set_btn_color(self):
-        for child in self.parent.children:
-            print(child.children[0].reset_color())
-
-
-class AllocationGoAccount(Button):
-    pass
+        for child in self.children:
+            child.reset_color()
 
 
 class AllocationButton(Button):
@@ -211,7 +201,6 @@ class AddAllocationGrid(GridLayout):
         self.add_widget(submit)
 
     def create(self):
-        print()
         add_allocation(name=self.an_t.text, goal=self.ag_t.text, balance=self.ab_t.text,
                        account_id=get_account_no("Test"))
 

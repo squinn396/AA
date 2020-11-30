@@ -59,7 +59,7 @@ def add_account_info():
         yn = input('Do you want to add any fund allocations to this account? (Y/n): ')
 
         if yn != 'n':
-            parent_account = get_account(get_account_no(name))
+            parent_account = get_account_by_name(get_account_no(name))
             print(clear)
             print(f"{parent_account['name']}: ${parent_account['balance']}")
             add_allocation_info(pa_name=parent_account['name'], pa_no=parent_account['account_id'])
@@ -118,7 +118,7 @@ def view_accounts():
 def account_page(accounts_list):
     select = int(input('Enter the account number corresponding to the account you want to access:\t'))
     if select in [account['account_id'] for account in accounts_list]:
-        account = get_account(select)
+        account = get_account_by_name(select)
         print(account)
         allocations = get_allocations(select)
         name = account['name']

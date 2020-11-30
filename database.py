@@ -68,7 +68,19 @@ def get_all_accounts():
     return accounts
 
 
-def get_account(account_no):
+def get_account(account_name):
+    connection = sqlite3.connect('data.db')
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * FROM Accounts WHERE name = ?', [account_name])
+    account = [{'account_id': row[0], 'name': row[1], 'balance': row[2]} for row in cursor.fetchall()][0]
+
+    connection.close()
+
+    return account
+
+
+def get_account_by_name(account_no):
     connection = sqlite3.connect('data.db')
     cursor = connection.cursor()
 
@@ -105,13 +117,14 @@ def get_allocation(allocation_name=None, allocation_id=None):
     return allocation
 
 
-def get_allocations(account_no):
+def get_allocations(account_id):
     connection = sqlite3.connect('data.db')
     cursor = connection.cursor()
 
-    cursor.execute('Select * FROM Allocations WHERE account_id = ?', (account_no,))
+    cursor.execute('Select * FROM Allocations WHERE account_id = ?', (account_id,))
     allocations = [{'allocation_id': row[0], 'name': row[1], 'goal': row[2], 'balance': row[3], 'account_id': row[4]}
                    for row in cursor.fetchall()]
+    print(f'Allocations (database.py):')
 
     connection.close()
     return allocations
@@ -143,7 +156,7 @@ def account_deposit(name, amount):
     connection.commit()
 
     connection.close()
-    info = get_account(get_account_no(name))
+    info = get_account(name)
     print(f'{info["name"]}: ${info["balance"]}')
 
 
@@ -168,9 +181,7 @@ def change_goal(name, new_goal):
 # REMOVING
 
 def delete_account(name):
-    id = get_account_no(name)
-
-    allocation_ids = [x['allocation_id'] for x in get_allocations(id)]
+    allocation_ids = [x['allocation_id'] for x in get_allocations(name)]
     for allocation in allocation_ids:
         delete_allocation(allocation)
 

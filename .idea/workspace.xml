@@ -19,11 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="Move classes to objects.py">
+    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="-Change allocation grid structure&#10;-Change get_account() to accept account name instead of account id">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analytics.py" beforeDir="false" afterPath="$PROJECT_DIR$/analytics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.kv" beforeDir="false" afterPath="$PROJECT_DIR$/gui.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/objects.py" afterDir="false" />
     </list>
@@ -272,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606776330087</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="-Change allocation grid structure&#10;-Change get_account() to accept account name instead of account id">
+      <created>1606779615678</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606779615678</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -297,7 +301,8 @@
     <MESSAGE value="Change Layout of allocations on Account page." />
     <MESSAGE value="Change allocations to tabs" />
     <MESSAGE value="Move classes to objects.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move classes to objects.py" />
+    <MESSAGE value="-Change allocation grid structure&#10;-Change get_account() to accept account name instead of account id" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Change allocation grid structure&#10;-Change get_account() to accept account name instead of account id" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603408946208">
@@ -320,34 +325,42 @@
       <screen x="0" y="23" width="1440" height="810" />
     </state>
     <state x="728" y="37" key="Github.UntrackedFilesDialog/0.23.1440.810@0.23.1440.810" timestamp="1604685782583" />
-    <state width="1419" height="244" key="GridCell.Tab.0.bottom" timestamp="1606779552819">
+    <state width="1419" height="244" key="GridCell.Tab.0.bottom" timestamp="1606783023250">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606779552819" />
+    <state width="1419" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606783023250" />
     <state width="798" height="106" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
-    <state width="1419" height="244" key="GridCell.Tab.0.center" timestamp="1606779552818">
+    <state width="806" height="244" key="GridCell.Tab.0.bottom/0.25.1440.803@0.25.1440.803" timestamp="1606782508439" />
+    <state width="806" height="244" key="GridCell.Tab.0.bottom/0.25.1440.804@0.25.1440.804" timestamp="1606782495605" />
+    <state width="1419" height="244" key="GridCell.Tab.0.center" timestamp="1606783023249">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1606779552818" />
+    <state width="1419" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1606783023249" />
     <state width="798" height="106" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1604361375139" />
-    <state width="1419" height="244" key="GridCell.Tab.0.left" timestamp="1606779552817">
+    <state width="806" height="244" key="GridCell.Tab.0.center/0.25.1440.803@0.25.1440.803" timestamp="1606782508438" />
+    <state width="806" height="244" key="GridCell.Tab.0.center/0.25.1440.804@0.25.1440.804" timestamp="1606782495604" />
+    <state width="1419" height="244" key="GridCell.Tab.0.left" timestamp="1606783023248">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1606779552817" />
+    <state width="1419" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1606783023248" />
     <state width="798" height="106" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1604361375138" />
-    <state width="1419" height="244" key="GridCell.Tab.0.right" timestamp="1606779552818">
+    <state width="806" height="244" key="GridCell.Tab.0.left/0.25.1440.803@0.25.1440.803" timestamp="1606782508438" />
+    <state width="806" height="244" key="GridCell.Tab.0.left/0.25.1440.804@0.25.1440.804" timestamp="1606782495603" />
+    <state width="1419" height="244" key="GridCell.Tab.0.right" timestamp="1606783023249">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1606779552818" />
+    <state width="1419" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1606783023249" />
     <state width="798" height="106" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
+    <state width="806" height="244" key="GridCell.Tab.0.right/0.25.1440.803@0.25.1440.803" timestamp="1606782508439" />
+    <state width="806" height="244" key="GridCell.Tab.0.right/0.25.1440.804@0.25.1440.804" timestamp="1606782495604" />
     <state width="1419" height="487" key="GridCell.Tab.1.bottom" timestamp="1606088296166">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

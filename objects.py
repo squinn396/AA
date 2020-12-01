@@ -119,8 +119,6 @@ class AccountScreen(Screen):
         header.add_widget(account)
         header.add_widget(balance)
 
-        layout.add_widget(header)
-
         # allocations = Allocations(account_name)
         home_button = AccountGoHome()
         add_allocation_grid = AddAllocationGrid()
@@ -140,12 +138,13 @@ class AccountScreen(Screen):
                 b = AllocationButton(text=allocation['name'])
                 allocations_grid.add_widget(b)
 
-        account_info = GridLayout(cols=1, size_hint_y=1)
-        account_info.add_widget(Label(text='Allocation summary'))
+        account_info = AllocationInfo(cols=1, size_hint_y=1, id='summary')
+        account_info.add_widget(Label(text='Account summary'))
+        account_info.add_widget(add_allocation_grid)
 
+        layout.add_widget(header)
         layout.add_widget(allocations_grid)
         layout.add_widget(account_info)
-        layout.add_widget(add_allocation_grid)
         layout.add_widget(home_button)
         self.add_widget(layout)
 
@@ -203,6 +202,17 @@ class AddAllocationGrid(GridLayout):
     def create(self):
         add_allocation(name=self.an_t.text, goal=self.ag_t.text, balance=self.ab_t.text,
                        account_id=get_account_no("Test"))
+
+
+class AllocationInfo(GridLayout):
+    def refresh(self, allocation_name):
+        self.clear_widgets()
+
+        if allocation_name == "Home":
+            self.add_widget(Label(text='Account Summary'))
+            self.add_widget(AddAllocationGrid())
+        else:
+            self.add_widget(Label(text=f'{allocation_name} Summary'))
 
 
 class AddAllocationSubmit(Button):

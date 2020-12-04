@@ -9,6 +9,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.textinput import TextInput
+from kivymd.uix.toolbar import MDToolbar
 
 from app import *
 from database import *
@@ -51,15 +52,19 @@ class WindowManager(ScreenManager):
 class HomeScreen(Screen):
     def populate(self):
         layout = BoxLayout(orientation='vertical')
-        welcome = Label(text='Welcome', size_hint_y=0.2)
+        tb = HomeToolbar()
         rv = RV()
         aa_btn = GoAddAccount()
 
-        layout.add_widget(welcome)
+        layout.add_widget(tb)
         layout.add_widget(rv)
         layout.add_widget(aa_btn)
 
         self.add_widget(layout)
+
+
+class HomeToolbar(MDToolbar):
+    pass
 
 
 class RV(RecycleView):

@@ -16,12 +16,19 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:kivymd" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="-Change allocation grid structure&#10;-Change get_account() to accept account name instead of account id">
+    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="-Make allocation displays adaptive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.kv" beforeDir="false" afterPath="$PROJECT_DIR$/gui.kv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/objects.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +44,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jFgtoKS1Eei2pLRyqLeV1jdTj0" />
@@ -49,9 +61,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kivymd" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/kivymd" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Test" />
       <recent name="$PROJECT_DIR$" />
@@ -195,10 +211,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.gui" />
-        <item itemvalue="Python.app" />
-        <item itemvalue="Python.guiwmethods" />
         <item itemvalue="Python.instance" />
+        <item itemvalue="Python.guiwmethods" />
         <item itemvalue="Python.example" />
+        <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
   </component>
@@ -276,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606779615678</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="-Make allocation displays adaptive">
+      <created>1606783110916</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1606783110916</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,7 +307,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="kivymd" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -302,7 +337,8 @@
     <MESSAGE value="Change allocations to tabs" />
     <MESSAGE value="Move classes to objects.py" />
     <MESSAGE value="-Change allocation grid structure&#10;-Change get_account() to accept account name instead of account id" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Change allocation grid structure&#10;-Change get_account() to accept account name instead of account id" />
+    <MESSAGE value="-Make allocation displays adaptive" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Make allocation displays adaptive" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603408946208">
@@ -325,37 +361,37 @@
       <screen x="0" y="23" width="1440" height="810" />
     </state>
     <state x="728" y="37" key="Github.UntrackedFilesDialog/0.23.1440.810@0.23.1440.810" timestamp="1604685782583" />
-    <state width="1419" height="244" key="GridCell.Tab.0.bottom" timestamp="1606783023250">
+    <state width="1419" height="244" key="GridCell.Tab.0.bottom" timestamp="1607121621107">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606783023250" />
+    <state width="1419" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607121621107" />
     <state width="798" height="106" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
     <state width="806" height="244" key="GridCell.Tab.0.bottom/0.25.1440.803@0.25.1440.803" timestamp="1606782508439" />
     <state width="806" height="244" key="GridCell.Tab.0.bottom/0.25.1440.804@0.25.1440.804" timestamp="1606782495605" />
-    <state width="1419" height="244" key="GridCell.Tab.0.center" timestamp="1606783023249">
+    <state width="1419" height="244" key="GridCell.Tab.0.center" timestamp="1607121621106">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1606783023249" />
+    <state width="1419" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607121621106" />
     <state width="798" height="106" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1604361375139" />
     <state width="806" height="244" key="GridCell.Tab.0.center/0.25.1440.803@0.25.1440.803" timestamp="1606782508438" />
     <state width="806" height="244" key="GridCell.Tab.0.center/0.25.1440.804@0.25.1440.804" timestamp="1606782495604" />
-    <state width="1419" height="244" key="GridCell.Tab.0.left" timestamp="1606783023248">
+    <state width="1419" height="244" key="GridCell.Tab.0.left" timestamp="1607121621105">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1606783023248" />
+    <state width="1419" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607121621105" />
     <state width="798" height="106" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1604361375138" />
     <state width="806" height="244" key="GridCell.Tab.0.left/0.25.1440.803@0.25.1440.803" timestamp="1606782508438" />
     <state width="806" height="244" key="GridCell.Tab.0.left/0.25.1440.804@0.25.1440.804" timestamp="1606782495603" />
-    <state width="1419" height="244" key="GridCell.Tab.0.right" timestamp="1606783023249">
+    <state width="1419" height="244" key="GridCell.Tab.0.right" timestamp="1607121621106">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1606783023249" />
+    <state width="1419" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607121621106" />
     <state width="798" height="106" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
@@ -381,10 +417,15 @@
     </state>
     <state width="1419" height="487" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1606088296166" />
     <state width="798" height="304" key="GridCell.Tab.1.right/0.23.1440.810@0.23.1440.810" timestamp="1604687616629" />
-    <state x="185" y="114" width="900" height="722" key="SettingsEditor" timestamp="1603405780880">
-      <screen x="0" y="23" width="1440" height="813" />
+    <state x="185" y="100" width="900" height="722" key="SettingsEditor" timestamp="1607039725346">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="185" y="100" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607039725346" />
     <state x="185" y="114" width="900" height="722" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1603405780880" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1607120643181">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1607120643181" />
     <state x="554" y="191" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1604685603523">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -1,7 +1,8 @@
+from kivymd.app import MDApp
 from objects import *
 
 
-class GUIApp(App):
+class GUIApp(MDApp):
     create_account_table()
     create_allocation_table()
 

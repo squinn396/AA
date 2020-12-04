@@ -3,12 +3,14 @@ from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
 from kivy.uix.button import Button
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.textinput import TextInput
+from kivymd.uix.tab import MDTabs, MDTabsBase
 from kivymd.uix.toolbar import MDToolbar
 
 from app import *
@@ -117,41 +119,50 @@ class AccountScreen(Screen):
     def populate(self):
         layout = GridLayout(cols=1)  # Change to Float Layout
 
-        header = GridLayout(cols=1, size_hint=(.2, .2), id='header')
-        account = Label(text=self.an)
-        balance = Label(text=f"${str(get_account(self.an)['balance'])}")
+        header = AccountToolbar(title=self.an)
+        #balance = Label(text=f"${str(get_account(self.an)['balance'])}")
 
-        header.add_widget(account)
-        header.add_widget(balance)
-
-        # allocations = Allocations(account_name)
         home_button = AccountGoHome()
-        add_allocation_grid = AddAllocationGrid()
+        #add_allocation_grid = AddAllocationGrid()
 
         allocations_grid = AllocationGrid(rows=1, size_hint_y=.2)
-
         allocations = get_allocations(get_account_no(self.an))
-        print(allocations)
 
         if not allocations:
             lab = Label(text='There are no allocations')  # adjust size
             allocations_grid.add_widget(lab)
         else:
+            """
             hb = AllocationButton(text='Home', background_color=[0, 1, 0, 1], id='home')
             allocations_grid.add_widget(hb)  # this is a confusing name, change
             for allocation in allocations:
                 b = AllocationButton(text=allocation['name'])
                 allocations_grid.add_widget(b)
+            """
+            tab_bar = MDTabs(id='tabs')
+
+            for allocation in allocations:
+                t = Tab(text=allocation['name'])
+                tab_bar.add_widget(t)
+            allocations_grid.add_widget(tab_bar)
 
         account_info = AllocationInfo(cols=1, size_hint_y=1, id='summary')
         account_info.add_widget(Label(text='Account summary'))
-        account_info.add_widget(add_allocation_grid)
+        #account_info.add_widget(add_allocation_grid)
 
         layout.add_widget(header)
         layout.add_widget(allocations_grid)
         layout.add_widget(account_info)
         layout.add_widget(home_button)
         self.add_widget(layout)
+
+
+class Tab(FloatLayout, MDTabsBase):
+    pass
+
+
+class AccountToolbar(MDToolbar):
+    pass
 
 
 class Account(GridLayout):
@@ -174,7 +185,7 @@ class AllocationButton(Button):
     def reset_color(self):
         self.background_color = [1, 1, 1, 1]
 
-
+"""
 class AddAllocationGrid(GridLayout):
     def __init__(self):
         super(AddAllocationGrid, self).__init__()
@@ -203,10 +214,10 @@ class AddAllocationGrid(GridLayout):
         layout.add_widget(self.ag_t)
         self.add_widget(layout)
         self.add_widget(submit)
-
     def create(self):
         add_allocation(name=self.an_t.text, goal=self.ag_t.text, balance=self.ab_t.text,
                        account_id=get_account_no("Test"))
+"""
 
 
 class AllocationInfo(GridLayout):

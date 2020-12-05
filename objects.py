@@ -10,6 +10,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.textinput import TextInput
+from kivymd.uix.navigationdrawer import MDNavigationDrawer
 from kivymd.uix.tab import MDTabs, MDTabsBase
 from kivymd.uix.toolbar import MDToolbar
 
@@ -114,54 +115,58 @@ class AddAccountGoHome(Button):
 class AccountScreen(Screen):
     def __init__(self, an):
         super().__init__()
-        self.an = an
+        self.account_name = an
 
     def populate(self):
         layout = GridLayout(cols=1)  # Change to Float Layout
 
-        header = AccountToolbar(title=self.an)
-        #balance = Label(text=f"${str(get_account(self.an)['balance'])}")
+        header = AccountToolbar(title=self.account_name)
+        header.right_action_items = [["menu", lambda x: self.children[1].toggle_nav_drawer()]]#self.toggle_drawer]]
+
+        allocations = GridLayout(cols=1)
+        self.load_tabs(allocations)
 
         home_button = AccountGoHome()
-        #add_allocation_grid = AddAllocationGrid()
 
-        allocations_grid = AllocationGrid(rows=1, size_hint_y=.2)
-        allocations = get_allocations(get_account_no(self.an))
+        account_info = AllocationInfo(cols=1, size_hint_y=1, id='summary')
+        account_info.add_widget(Label(text='Account summary'))
+
+        layout.add_widget(header)
+        layout.add_widget(allocations)
+        layout.add_widget(account_info)
+        layout.add_widget(home_button)
+        self.add_widget(layout)
+
+    def load_tabs(self, layout: GridLayout):
+        if layout.children:
+            layout.clear_widgets()
+
+        allocations = get_allocations(get_account_no(self.account_name))
 
         if not allocations:
             lab = Label(text='There are no allocations')  # adjust size
-            allocations_grid.add_widget(lab)
+            layout.add_widget(lab)
         else:
-            """
-            hb = AllocationButton(text='Home', background_color=[0, 1, 0, 1], id='home')
-            allocations_grid.add_widget(hb)  # this is a confusing name, change
-            for allocation in allocations:
-                b = AllocationButton(text=allocation['name'])
-                allocations_grid.add_widget(b)
-            """
             tab_bar = MDTabs(id='tabs')
 
             for allocation in allocations:
                 t = Tab(text=allocation['name'])
                 tab_bar.add_widget(t)
-            allocations_grid.add_widget(tab_bar)
+            layout.add_widget(tab_bar)
 
-        account_info = AllocationInfo(cols=1, size_hint_y=1, id='summary')
-        account_info.add_widget(Label(text='Account summary'))
-        #account_info.add_widget(add_allocation_grid)
-
-        layout.add_widget(header)
-        layout.add_widget(allocations_grid)
-        layout.add_widget(account_info)
-        layout.add_widget(home_button)
-        self.add_widget(layout)
-
-
-class Tab(FloatLayout, MDTabsBase):
-    pass
+    def toggle_drawer(self):
+        for child in self.children:
+            print(child)
+            if child.id == "nav_drawer":
+                child.toggle_nav_drawer()
+                print('Toggled')
 
 
 class AccountToolbar(MDToolbar):
+    pass
+
+
+class Tab(FloatLayout, MDTabsBase):
     pass
 
 

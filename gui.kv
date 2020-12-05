@@ -39,8 +39,11 @@
 <AccountScreen>:
     id: 'account'
     name: 'account'
+    MDNavigationDrawer:
+        id: nav_drawer
+        GridLayout:
 
-<AccountToolbar>:
+AccountToolbar:
     right_action_items: [["menu", lambda x: print('menu')]]
     #md_bg_color: app.theme_cls.accent_color
 

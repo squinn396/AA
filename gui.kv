@@ -5,6 +5,9 @@
 <HomeScreen>:
     id: 'home'
     name: 'home'
+    MDNavigationDrawer:
+        id: home_drawer
+        GridLayout:
 
 <HomeToolbar>:
     title: 'Welcome'
@@ -49,13 +52,6 @@ AccountToolbar:
 
 
 
-
-<AllocationButton>:
-    on_release:
-        root.parent.set_btn_color()
-        root.background_color= [0,1,0,1]
-        #print(root.parent.parent.parent.children[0].children[1].id) #looking for AllocationInfo
-        root.parent.parent.parent.children[0].children[1].refresh(root.text)
 
 <AccountGoHome>:
     text: "Home"

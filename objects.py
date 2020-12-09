@@ -42,8 +42,6 @@ class WindowManager(ScreenManager):
 
         self.add_widget(a)
 
-        print('Account Screen Created!')
-
     def clear_account_screen(self):
         if self.children[1].name != "add_account":
             self.remove_widget(self.children[1])
@@ -56,6 +54,7 @@ class HomeScreen(Screen):
     def populate(self):
         layout = BoxLayout(orientation='vertical')
         tb = HomeToolbar()
+        tb.left_action_items = [["menu", lambda x: self.children[1].toggle_nav_drawer()]]
         rv = RV()
         aa_btn = GoAddAccount()
 
@@ -121,14 +120,14 @@ class AccountScreen(Screen):
         layout = GridLayout(cols=1)  # Change to Float Layout
 
         header = AccountToolbar(title=self.account_name)
-        header.right_action_items = [["menu", lambda x: self.children[1].toggle_nav_drawer()]]#self.toggle_drawer]]
+        header.left_action_items = [["menu", lambda x: self.children[1].toggle_nav_drawer()]]
 
         allocations = GridLayout(cols=1)
         self.load_tabs(allocations)
 
         home_button = AccountGoHome()
 
-        account_info = AllocationInfo(cols=1, size_hint_y=1, id='summary')
+        account_info = GridLayout(cols=1, size_hint_y=1, id='summary')
         account_info.add_widget(Label(text='Account summary'))
 
         layout.add_widget(header)
@@ -154,13 +153,6 @@ class AccountScreen(Screen):
                 tab_bar.add_widget(t)
             layout.add_widget(tab_bar)
 
-    def toggle_drawer(self):
-        for child in self.children:
-            print(child)
-            if child.id == "nav_drawer":
-                child.toggle_nav_drawer()
-                print('Toggled')
-
 
 class AccountToolbar(MDToolbar):
     pass
@@ -184,56 +176,6 @@ class AllocationGrid(GridLayout):
     def set_btn_color(self):
         for child in self.children:
             child.reset_color()
-
-
-class AllocationButton(Button):
-    def reset_color(self):
-        self.background_color = [1, 1, 1, 1]
-
-"""
-class AddAllocationGrid(GridLayout):
-    def __init__(self):
-        super(AddAllocationGrid, self).__init__()
-        self.an_t = None
-        self.ab_t = None
-        self.ag_t = None
-        # self.parent_account = self.p
-
-    def make_info(self):
-        self.clear_widgets()
-
-        layout = GridLayout(cols=2)
-        an = Label(text="Allocation Name")
-        self.an_t = TextInput(id="allocation_name")
-        ab = Label(text="Balance")
-        self.ab_t = TextInput(id="allocation_balance")
-        ag = Label(text="Goal")
-        self.ag_t = TextInput(id="allocation_goal")
-        submit = AddAllocationSubmit()
-
-        layout.add_widget(an)
-        layout.add_widget(self.an_t)
-        layout.add_widget(ab)
-        layout.add_widget(self.ab_t)
-        layout.add_widget(ag)
-        layout.add_widget(self.ag_t)
-        self.add_widget(layout)
-        self.add_widget(submit)
-    def create(self):
-        add_allocation(name=self.an_t.text, goal=self.ag_t.text, balance=self.ab_t.text,
-                       account_id=get_account_no("Test"))
-"""
-
-
-class AllocationInfo(GridLayout):
-    def refresh(self, allocation_name):
-        self.clear_widgets()
-
-        if allocation_name == "Home":
-            self.add_widget(Label(text='Account Summary'))
-            self.add_widget(AddAllocationGrid())
-        else:
-            self.add_widget(Label(text=f'{allocation_name} Summary'))
 
 
 class AddAllocationSubmit(Button):

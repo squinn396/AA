@@ -46,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="kivymd" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -95,27 +95,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="AA" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="example" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="AA" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,6 +108,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test/example.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="factory" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AA" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/lib/python3.7/site-packages/kivy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/lib/python3.7/site-packages/kivy/factory.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,19 +202,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.AAenv" />
-      <item itemvalue="Python.app" />
       <item itemvalue="Python.example" />
       <item itemvalue="Python.gui" />
       <item itemvalue="Python.guiwmethods" />
       <item itemvalue="Python.instance" />
+      <item itemvalue="Python.factory" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.gui" />
+        <item itemvalue="Python.factory" />
         <item itemvalue="Python.instance" />
         <item itemvalue="Python.guiwmethods" />
         <item itemvalue="Python.example" />
-        <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
   </component>
@@ -385,61 +385,61 @@
       <screen x="0" y="23" width="1440" height="810" />
     </state>
     <state x="728" y="37" key="Github.UntrackedFilesDialog/0.23.1440.810@0.23.1440.810" timestamp="1604685782583" />
-    <state width="1419" height="244" key="GridCell.Tab.0.bottom" timestamp="1607553550476">
+    <state width="1419" height="232" key="GridCell.Tab.0.bottom" timestamp="1607639488613">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607553550476" />
+    <state width="1419" height="232" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607639488613" />
     <state width="798" height="106" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
-    <state width="806" height="244" key="GridCell.Tab.0.bottom/0.25.1440.803@0.25.1440.803" timestamp="1607483618396" />
+    <state width="806" height="232" key="GridCell.Tab.0.bottom/0.25.1440.803@0.25.1440.803" timestamp="1607638852483" />
     <state width="806" height="244" key="GridCell.Tab.0.bottom/0.25.1440.804@0.25.1440.804" timestamp="1606782495605" />
-    <state width="1419" height="244" key="GridCell.Tab.0.center" timestamp="1607553550474">
+    <state width="1419" height="232" key="GridCell.Tab.0.center" timestamp="1607639488612">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607553550474" />
+    <state width="1419" height="232" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607639488612" />
     <state width="798" height="106" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1604361375139" />
-    <state width="806" height="244" key="GridCell.Tab.0.center/0.25.1440.803@0.25.1440.803" timestamp="1607483618396" />
+    <state width="806" height="232" key="GridCell.Tab.0.center/0.25.1440.803@0.25.1440.803" timestamp="1607638852482" />
     <state width="806" height="244" key="GridCell.Tab.0.center/0.25.1440.804@0.25.1440.804" timestamp="1606782495604" />
-    <state width="1419" height="244" key="GridCell.Tab.0.left" timestamp="1607553550474">
+    <state width="1419" height="232" key="GridCell.Tab.0.left" timestamp="1607639488611">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607553550474" />
+    <state width="1419" height="232" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607639488611" />
     <state width="798" height="106" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1604361375138" />
-    <state width="806" height="244" key="GridCell.Tab.0.left/0.25.1440.803@0.25.1440.803" timestamp="1607483618395" />
+    <state width="806" height="232" key="GridCell.Tab.0.left/0.25.1440.803@0.25.1440.803" timestamp="1607638852481" />
     <state width="806" height="244" key="GridCell.Tab.0.left/0.25.1440.804@0.25.1440.804" timestamp="1606782495603" />
-    <state width="1419" height="244" key="GridCell.Tab.0.right" timestamp="1607553550475">
+    <state width="1419" height="232" key="GridCell.Tab.0.right" timestamp="1607639488613">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607553550475" />
+    <state width="1419" height="232" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607639488613" />
     <state width="798" height="106" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
-    <state width="806" height="244" key="GridCell.Tab.0.right/0.25.1440.803@0.25.1440.803" timestamp="1607483618396" />
+    <state width="806" height="232" key="GridCell.Tab.0.right/0.25.1440.803@0.25.1440.803" timestamp="1607638852482" />
     <state width="806" height="244" key="GridCell.Tab.0.right/0.25.1440.804@0.25.1440.804" timestamp="1606782495604" />
-    <state width="1419" height="487" key="GridCell.Tab.1.bottom" timestamp="1606088296166">
+    <state width="1419" height="487" key="GridCell.Tab.1.bottom" timestamp="1607635577585">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="487" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606088296166" />
+    <state width="1419" height="487" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607635577585" />
     <state width="798" height="304" key="GridCell.Tab.1.bottom/0.23.1440.810@0.23.1440.810" timestamp="1604687616629" />
-    <state width="1419" height="487" key="GridCell.Tab.1.center" timestamp="1606088296166">
+    <state width="1419" height="487" key="GridCell.Tab.1.center" timestamp="1607635577584">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="487" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1606088296166" />
+    <state width="1419" height="487" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1607635577584" />
     <state width="798" height="304" key="GridCell.Tab.1.center/0.23.1440.810@0.23.1440.810" timestamp="1604687616629" />
-    <state width="1419" height="487" key="GridCell.Tab.1.left" timestamp="1606088296165">
+    <state width="1419" height="487" key="GridCell.Tab.1.left" timestamp="1607635577583">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="487" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1606088296165" />
+    <state width="1419" height="487" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1607635577583" />
     <state width="798" height="304" key="GridCell.Tab.1.left/0.23.1440.810@0.23.1440.810" timestamp="1604687616629" />
-    <state width="1419" height="487" key="GridCell.Tab.1.right" timestamp="1606088296166">
+    <state width="1419" height="487" key="GridCell.Tab.1.right" timestamp="1607635577585">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="487" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1606088296166" />
+    <state width="1419" height="487" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1607635577585" />
     <state width="798" height="304" key="GridCell.Tab.1.right/0.23.1440.810@0.23.1440.810" timestamp="1604687616629" />
     <state x="185" y="100" width="900" height="722" key="SettingsEditor" timestamp="1607039725346">
       <screen x="0" y="0" width="1440" height="900" />

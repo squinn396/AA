@@ -17,11 +17,22 @@ from kivymd.uix.toolbar import MDToolbar
 from app import *
 from database import *
 
+
+# ======================================================App Screen=======================
+class MainScreen(Screen):
+    pass
+
+
+class MDToolbar():
+    pass
+
+
 # ======================================================Screen Manager=======================
 
 
 class WindowManager(ScreenManager):
     def populate(self):
+        print("WM populate")
         self.add_home_screen()
 
         aas = AddAccountScreen()
@@ -47,18 +58,19 @@ class WindowManager(ScreenManager):
             self.remove_widget(self.children[1])
 
 
+class ContentNavigationDrawer(GridLayout):
+    pass
+
+
 # =======================================================Home========================
 
 
 class HomeScreen(Screen):
     def populate(self):
         layout = BoxLayout(orientation='vertical')
-        tb = HomeToolbar()
-        tb.left_action_items = [["menu", lambda x: self.children[1].toggle_nav_drawer()]]
         rv = RV()
         aa_btn = GoAddAccount()
 
-        layout.add_widget(tb)
         layout.add_widget(rv)
         layout.add_widget(aa_btn)
 
@@ -119,9 +131,6 @@ class AccountScreen(Screen):
     def populate(self):
         layout = GridLayout(cols=1)  # Change to Float Layout
 
-        header = AccountToolbar(title=self.account_name)
-        header.left_action_items = [["menu", lambda x: self.children[1].toggle_nav_drawer()]]
-
         allocations = GridLayout(cols=1)
         self.load_tabs(allocations)
 
@@ -130,7 +139,6 @@ class AccountScreen(Screen):
         account_info = GridLayout(cols=1, size_hint_y=1, id='summary')
         account_info.add_widget(Label(text='Account summary'))
 
-        layout.add_widget(header)
         layout.add_widget(allocations)
         layout.add_widget(account_info)
         layout.add_widget(home_button)
@@ -180,4 +188,3 @@ class AllocationGrid(GridLayout):
 
 class AddAllocationSubmit(Button):
     pass
-

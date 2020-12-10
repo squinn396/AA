@@ -1,17 +1,26 @@
+<MainScreen>:
+    MDToolbar:
+        id: toolbar
+        title: "App Toolbar"
+        pos_hint: {"top": 1}
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+    NavigationLayout:
+        WindowManager:
+            id: wm
+            y: 1-toolbar.height
+
+
+        MDNavigationDrawer:
+            id: nav_drawer
+
+
 <WindowManager>:
     id: wm
 
 #=================================================HOME======================================================
 <HomeScreen>:
-    id: 'home'
+    #id: 'home'
     name: 'home'
-    MDNavigationDrawer:
-        id: home_drawer
-        GridLayout:
-
-<HomeToolbar>:
-    title: 'Welcome'
-    #md_bg_color: app.theme_cls.accent_color
 
 
 <RV>:
@@ -25,18 +34,19 @@
 
 <RVButton>:
     on_release:
+        # app.root.children[0].children[1] is WindowManager
         root.parent.parent.parent.parent.manager.transition.direction = "left" # transition left
-        app.root.add_account_screen(self.text) #creates account screen for the account represented by the button
-        app.root.current = 'account'
-        app.root.clear_home_screen()
+        app.root.children[0].children[1].add_account_screen(self.text)
+        app.root.children[0].children[1].current = 'account'
+        app.root.children[0].children[1].clear_home_screen()
 
 <GoAddAccount>:
     text: "Add Account"
     size_hint_y: .2
     on_release:
         root.parent.parent.manager.transition.direction = "up"
-        app.root.current = "add_account"
-        app.root.clear_home_screen()
+        app.root.children[0].children[1].current = "add_account"
+        app.root.children[0].children[1].clear_home_screen()
 
 #=================================================ACCOUNT======================================================
 <AccountScreen>:
@@ -46,21 +56,15 @@
         id: nav_drawer
         GridLayout:
 
-AccountToolbar:
-    right_action_items: [["menu", lambda x: print('menu')]]
-    #md_bg_color: app.theme_cls.accent_color
-
-
-
 
 <AccountGoHome>:
     text: "Home"
     size_hint_y: .235
     on_release:
         root.parent.parent.manager.transition.direction = "right"
-        app.root.add_home_screen()
-        app.root.current = "home"
-        app.root.clear_account_screen()
+        app.root.children[0].children[1].add_home_screen()
+        app.root.children[0].children[1].current = "home"
+        app.root.children[0].children[1].clear_account_screen()
 
 <AddAllocationGrid>:
     id: add_allocation_grid
@@ -120,9 +124,9 @@ AccountToolbar:
     size_hint_y: .3
     on_release:
         root.parent.parent.manager.transition.direction = "down"
-        app.root.add_home_screen()
-        app.root.current = "home"
-        app.root.clear_account_screen()
+        app.root.children[0].children[1].add_home_screen()
+        app.root.children[0].children[1].current = "home"
+        app.root.children[0].children[1].clear_account_screen()
 
 
 <Popup>:

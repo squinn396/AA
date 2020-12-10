@@ -1,4 +1,6 @@
 from kivymd.app import MDApp
+from kivymd.uix.navigationdrawer import NavigationLayout
+
 from objects import *
 
 
@@ -9,11 +11,26 @@ class GUIApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Green"
         self.theme_cls.theme_style = "Dark"
-        wm = WindowManager()
+        """Screen:
+            Toolbar:
+            NavigationLayout:
+                WindowManager: (it's a ScreenManager)
+                    Home:
+                    AddAccount:
+                MDNavigationDrawer:
+                    ContentNavigationDrawer:
+                """
 
-        wm.populate()
+        #wm = WindowManager()
 
-        return wm
+        #wm.populate()
+
+        ms = MainScreen()
+
+        print(ms.children[0].children[1])
+        ms.children[0].children[1].populate()
+
+        return ms
 
 
 def run():

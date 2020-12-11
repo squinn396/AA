@@ -7,7 +7,8 @@
     NavigationLayout:
         WindowManager:
             id: wm
-            y: 1-toolbar.height
+            #y: 1-toolbar.height
+            size_hint_y: (root.height - toolbar.height)/root.height
 
 
         MDNavigationDrawer:
@@ -34,27 +35,25 @@
 
 <RVButton>:
     on_release:
-        # app.root.children[0].children[1] is WindowManager
         root.parent.parent.parent.parent.manager.transition.direction = "left" # transition left
-        app.root.children[0].children[1].add_account_screen(self.text)
-        app.root.children[0].children[1].current = 'account'
-        app.root.children[0].children[1].clear_home_screen()
+        app.root.ids.wm.add_account_screen(self.text)
+        app.root.ids.wm.current = 'account'
+        app.root.ids.wm.clear_home_screen()
+        app.root.ids.toolbar.title = self.text
 
 <GoAddAccount>:
     text: "Add Account"
     size_hint_y: .2
     on_release:
         root.parent.parent.manager.transition.direction = "up"
-        app.root.children[0].children[1].current = "add_account"
-        app.root.children[0].children[1].clear_home_screen()
+        app.root.ids.wm.current = "add_account"
+        app.root.ids.wm.clear_home_screen()
+        app.root.ids.toolbar.title = self.text # toolbar title
 
 #=================================================ACCOUNT======================================================
 <AccountScreen>:
     id: 'account'
     name: 'account'
-    MDNavigationDrawer:
-        id: nav_drawer
-        GridLayout:
 
 
 <AccountGoHome>:
@@ -62,9 +61,9 @@
     size_hint_y: .235
     on_release:
         root.parent.parent.manager.transition.direction = "right"
-        app.root.children[0].children[1].add_home_screen()
-        app.root.children[0].children[1].current = "home"
-        app.root.children[0].children[1].clear_account_screen()
+        app.root.ids.wm.add_home_screen()
+        app.root.ids.wm.current = "home"
+        app.root.ids.wm.clear_account_screen()
 
 <AddAllocationGrid>:
     id: add_allocation_grid
@@ -99,8 +98,6 @@
 
     GridLayout:
         cols: 1
-        Label:
-            text: "Add Account"
         GridLayout:
             cols: 2
             Label:
@@ -124,9 +121,9 @@
     size_hint_y: .3
     on_release:
         root.parent.parent.manager.transition.direction = "down"
-        app.root.children[0].children[1].add_home_screen()
-        app.root.children[0].children[1].current = "home"
-        app.root.children[0].children[1].clear_account_screen()
+        app.root.ids.wm.add_home_screen()
+        app.root.ids.wm.current = "home"
+        app.root.ids.wm.clear_account_screen()
 
 
 <Popup>:

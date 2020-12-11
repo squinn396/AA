@@ -10,6 +10,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.textinput import TextInput
+from kivymd.uix.button import MDRoundFlatButton, MDFlatButton
 from kivymd.uix.navigationdrawer import MDNavigationDrawer
 from kivymd.uix.tab import MDTabs, MDTabsBase
 from kivymd.uix.toolbar import MDToolbar
@@ -23,7 +24,7 @@ class MainScreen(Screen):
     pass
 
 
-class MDToolbar():
+class MDToolbar:
     pass
 
 
@@ -32,7 +33,6 @@ class MDToolbar():
 
 class WindowManager(ScreenManager):
     def populate(self):
-        print("WM populate")
         self.add_home_screen()
 
         aas = AddAccountScreen()
@@ -87,7 +87,7 @@ class RV(RecycleView):
         self.data = [{'text': account} for account in view_accounts2()]
 
 
-class RVButton(Button):
+class RVButton(MDFlatButton):
     pass
 
 

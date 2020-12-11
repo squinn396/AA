@@ -25,7 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="- Add NavigationDrawer to Account page">
+    <list default="true" id="849810b7-91f2-4aad-beb9-f8446e81af0b" name="Default Changelist" comment="- Add NavigationLayout to App&#10;- Add Toolbar for entire App&#10;- Change navigation for NavigationLayout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.kv" beforeDir="false" afterPath="$PROJECT_DIR$/gui.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
@@ -320,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607129963419</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="- Add NavigationLayout to App&#10;- Add Toolbar for entire App&#10;- Change navigation for NavigationLayout">
+      <created>1607639626957</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607639626957</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,7 +369,8 @@
     <MESSAGE value="- Change &quot;Welcome&quot; label to a toolbar" />
     <MESSAGE value="- Add toolbar&#10;- Change Allocation buttons to tabs&#10;- Get rid of AddAllocationGrid" />
     <MESSAGE value="- Add NavigationDrawer to Account page" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Add NavigationDrawer to Account page" />
+    <MESSAGE value="- Add NavigationLayout to App&#10;- Add Toolbar for entire App&#10;- Change navigation for NavigationLayout" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Add NavigationLayout to App&#10;- Add Toolbar for entire App&#10;- Change navigation for NavigationLayout" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603408946208">
@@ -385,37 +393,37 @@
       <screen x="0" y="23" width="1440" height="810" />
     </state>
     <state x="728" y="37" key="Github.UntrackedFilesDialog/0.23.1440.810@0.23.1440.810" timestamp="1604685782583" />
-    <state width="1419" height="232" key="GridCell.Tab.0.bottom" timestamp="1607639488613">
+    <state width="1419" height="232" key="GridCell.Tab.0.bottom" timestamp="1607647799499">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="232" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607639488613" />
+    <state width="1419" height="232" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607647799499" />
     <state width="798" height="106" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.bottom/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />
     <state width="806" height="232" key="GridCell.Tab.0.bottom/0.25.1440.803@0.25.1440.803" timestamp="1607638852483" />
     <state width="806" height="244" key="GridCell.Tab.0.bottom/0.25.1440.804@0.25.1440.804" timestamp="1606782495605" />
-    <state width="1419" height="232" key="GridCell.Tab.0.center" timestamp="1607639488612">
+    <state width="1419" height="232" key="GridCell.Tab.0.center" timestamp="1607647799497">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="232" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607639488612" />
+    <state width="1419" height="232" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607647799497" />
     <state width="798" height="106" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.center/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1604361375139" />
     <state width="806" height="232" key="GridCell.Tab.0.center/0.25.1440.803@0.25.1440.803" timestamp="1607638852482" />
     <state width="806" height="244" key="GridCell.Tab.0.center/0.25.1440.804@0.25.1440.804" timestamp="1606782495604" />
-    <state width="1419" height="232" key="GridCell.Tab.0.left" timestamp="1607639488611">
+    <state width="1419" height="232" key="GridCell.Tab.0.left" timestamp="1607647799497">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="232" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607639488611" />
+    <state width="1419" height="232" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607647799497" />
     <state width="798" height="106" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1605832122562" />
     <state width="1153" height="245" key="GridCell.Tab.0.left/0.23.1440.813@0.23.1440.813" timestamp="1604622977292" />
     <state width="919" height="254" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1604361375138" />
     <state width="806" height="232" key="GridCell.Tab.0.left/0.25.1440.803@0.25.1440.803" timestamp="1607638852481" />
     <state width="806" height="244" key="GridCell.Tab.0.left/0.25.1440.804@0.25.1440.804" timestamp="1606782495603" />
-    <state width="1419" height="232" key="GridCell.Tab.0.right" timestamp="1607639488613">
+    <state width="1419" height="232" key="GridCell.Tab.0.right" timestamp="1607647799498">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="232" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607639488613" />
+    <state width="1419" height="232" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607647799498" />
     <state width="798" height="106" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1605832122563" />
     <state width="1153" height="245" key="GridCell.Tab.0.right/0.23.1440.813@0.23.1440.813" timestamp="1604622977293" />
     <state width="919" height="254" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1604361375140" />

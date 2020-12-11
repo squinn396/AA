@@ -11,24 +11,11 @@ class GUIApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Green"
         self.theme_cls.theme_style = "Dark"
-        """Screen:
-            Toolbar:
-            NavigationLayout:
-                WindowManager: (it's a ScreenManager)
-                    Home:
-                    AddAccount:
-                MDNavigationDrawer:
-                    ContentNavigationDrawer:
-                """
-
-        #wm = WindowManager()
-
-        #wm.populate()
 
         ms = MainScreen()
 
-        print(ms.children[0].children[1])
-        ms.children[0].children[1].populate()
+        print(ms.ids.wm)
+        ms.ids.wm.populate()
 
         return ms
 

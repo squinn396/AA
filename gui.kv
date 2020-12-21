@@ -25,7 +25,7 @@
 
 
 <RV>:
-    viewclass: 'RVButton'
+    viewclass: 'SwipeToGo'
     RecycleBoxLayout:
         default_size: None, dp(56)
         default_size_hint: 1, None
@@ -50,6 +50,32 @@
         app.root.ids.wm.clear_home_screen()
         app.root.ids.toolbar.title = self.text # toolbar title
 
+<SwipeToGo>:
+    size_hint_y: None
+    height: content.height
+    anchor: "right"
+    swipe_type: "hand"
+
+    on_swipe_complete:
+        root.parent.parent.parent.parent.manager.transition.direction = "left" # transition left
+        app.root.ids.wm.add_account_screen(self.text)
+        app.root.ids.wm.current = 'account'
+        app.root.ids.wm.clear_home_screen()
+        app.root.ids.toolbar.title = self.text
+
+    MDCardSwipeLayerBox:
+        icon: "right arrow"
+
+
+    MDCardSwipeFrontBox:
+
+        OneLineListItem:
+            id: content
+            text: root.text
+            _no_ripple_effect: True
+        MDIconButton:
+            icon: "language-python"
+            padding_right: .5
 #=================================================ACCOUNT======================================================
 <AccountScreen>:
     id: 'account'
@@ -99,17 +125,14 @@
     GridLayout:
         cols: 1
         GridLayout:
-            cols: 2
-            Label:
-                text: "Account Name"
-            TextInput:
+            cols: 1
+            padding: 100
+            MDTextField:
                 id: new_account_name
-                multiline: False
-            Label:
-                text: "Balance"
-            TextInput:
+                hint_text: "Account name"
+            MDTextField:
                 id: new_account_balance
-                multiline: False
+                hint_text: "Balance"
         Button:
             size_hint_y: .2
             text: "Submit"

@@ -1,7 +1,7 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.gridlayout import GridLayout
@@ -10,7 +10,8 @@ from kivy.uix.popup import Popup
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.textinput import TextInput
-from kivymd.uix.button import MDRoundFlatButton, MDFlatButton
+from kivymd.uix.button import MDRoundFlatButton, MDFlatButton, MDFloatingActionButton
+from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.navigationdrawer import MDNavigationDrawer
 from kivymd.uix.tab import MDTabs, MDTabsBase
 from kivymd.uix.toolbar import MDToolbar
@@ -95,6 +96,8 @@ class GoAddAccount(Button):
     pass
 
 
+class SwipeToGo(MDCardSwipe):
+    text=StringProperty()
 # =====================================================AddAccount==============
 
 
@@ -137,7 +140,7 @@ class AccountScreen(Screen):
         home_button = AccountGoHome()
 
         account_info = GridLayout(cols=1, size_hint_y=1, id='summary')
-        account_info.add_widget(Label(text='Account summary'))
+        #add carousel
 
         layout.add_widget(allocations)
         layout.add_widget(account_info)
@@ -150,9 +153,11 @@ class AccountScreen(Screen):
 
         allocations = get_allocations(get_account_no(self.account_name))
 
-        if not allocations:
-            lab = Label(text='There are no allocations')  # adjust size
-            layout.add_widget(lab)
+        if len(allocations) <= 1:
+            if not allocations:
+                lab = Label(text='There are no allocations')  # adjust size
+                layout.add_widget(lab)
+
         else:
             tab_bar = MDTabs(id='tabs')
 

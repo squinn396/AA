@@ -95,26 +95,29 @@ def get_account_by_name(account_no):
 def get_allocation(allocation_name=None, allocation_id=None):
     connection = sqlite3.connect('data.db')
     cursor = connection.cursor()
+    allocation = 1
 
-    if allocation_name != None:
+    if allocation_name is not None:
         cursor.execute('SELECT * FROM Allocations WHERE name = ?', (allocation_name,))
         allocation = \
             [{'allocation_id': row[0], 'name': row[1], 'goal': row[2], 'balance': row[3], 'account_id': row[4]} for row
              in
              cursor.fetchall()][0]
+        connection.close()
 
-
+        return allocation
 
     elif allocation_id:
+        print(f"Id: {allocation_id}")
         cursor.execute('SELECT * FROM Allocations WHERE allocation_id = ?', (allocation_id,))
+        print("Querying...")
         allocation = \
             [{'allocation_id': row[0], 'name': row[1], 'goal': row[2], 'balance': row[3], 'account_id': row[4]} for row
              in
              cursor.fetchall()][0]
+        connection.close()
 
-    connection.close()
-
-    return allocation
+        return allocation
 
 
 def get_allocations(account_id):
@@ -124,7 +127,6 @@ def get_allocations(account_id):
     cursor.execute('Select * FROM Allocations WHERE account_id = ?', (account_id,))
     allocations = [{'allocation_id': row[0], 'name': row[1], 'goal': row[2], 'balance': row[3], 'account_id': row[4]}
                    for row in cursor.fetchall()]
-    print(f'Allocations (database.py):')
 
     connection.close()
     return allocations

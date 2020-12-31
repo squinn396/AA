@@ -10,7 +10,8 @@ from kivy.uix.popup import Popup
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.textinput import TextInput
-from kivymd.uix.button import MDRoundFlatButton, MDFlatButton, MDFloatingActionButton
+from kivymd.uix.button import MDRoundFlatButton, MDFlatButton, MDFloatingActionButton, MDRectangleFlatButton, \
+    MDFillRoundFlatButton
 from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.navigationdrawer import MDNavigationDrawer
 from kivymd.uix.tab import MDTabs, MDTabsBase
@@ -58,6 +59,12 @@ class WindowManager(ScreenManager):
         if self.children[1].name != "add_account":
             self.remove_widget(self.children[1])
 
+    def go_addaccount(self):
+        self.transition.direction = "up"
+        self.current = "add_account"
+        self.clear_home_screen()
+        self.parent.parent.ids.toolbar.title = "Add Account"
+
 
 class ContentNavigationDrawer(GridLayout):
     pass
@@ -70,16 +77,9 @@ class HomeScreen(Screen):
     def populate(self):
         layout = BoxLayout(orientation='vertical')
         rv = RV()
-        aa_btn = GoAddAccount()
-
         layout.add_widget(rv)
-        layout.add_widget(aa_btn)
 
         self.add_widget(layout)
-
-
-class HomeToolbar(MDToolbar):
-    pass
 
 
 class RV(RecycleView):
@@ -92,12 +92,11 @@ class RVButton(MDFlatButton):
     pass
 
 
-class GoAddAccount(Button):
-    pass
-
 
 class SwipeToGo(MDCardSwipe):
-    text=StringProperty()
+    text = StringProperty()
+
+
 # =====================================================AddAccount==============
 
 
@@ -140,7 +139,7 @@ class AccountScreen(Screen):
         home_button = AccountGoHome()
 
         account_info = GridLayout(cols=1, size_hint_y=1, id='summary')
-        #add carousel
+        # add carousel
 
         layout.add_widget(allocations)
         layout.add_widget(account_info)
@@ -163,6 +162,7 @@ class AccountScreen(Screen):
 
             for allocation in allocations:
                 t = Tab(text=allocation['name'])
+                t.add_widget(Label(text=t.text))
                 tab_bar.add_widget(t)
             layout.add_widget(tab_bar)
 
@@ -172,7 +172,8 @@ class AccountToolbar(MDToolbar):
 
 
 class Tab(FloatLayout, MDTabsBase):
-    pass
+    def populate(self):
+        self.add_widget(Label(self.text))
 
 
 class Account(GridLayout):

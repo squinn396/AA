@@ -141,7 +141,7 @@ def get_account_no(name):
 
     connection.close()
     # print(account_no)
-    if account_no == None:
+    if not account_no:
         a = None
     else:
         a = account_no[0]

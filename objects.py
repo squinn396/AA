@@ -87,14 +87,20 @@ class RV(RecycleView):
         super(RV, self).__init__(**kwargs)
         self.data = [{'text': account} for account in view_accounts2()]
 
+        for account in view_accounts2():
+            file = f"{account}.png"
+            if not os.path.exists(f"account_pies/{file}"):
+                account_pie(account)
+            print(account)
+
 
 class RVButton(MDFlatButton):
     pass
 
 
-
 class SwipeToGo(MDCardSwipe):
     text = StringProperty()
+    icon = "account_pies/Checking.png"
 
 
 # =====================================================AddAccount==============

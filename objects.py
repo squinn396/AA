@@ -11,7 +11,7 @@ from kivy.uix.recycleview import RecycleView
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.textinput import TextInput
 from kivymd.uix.button import MDRoundFlatButton, MDFlatButton, MDFloatingActionButton, MDRectangleFlatButton, \
-    MDFillRoundFlatButton
+    MDFillRoundFlatButton, MDIconButton
 from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.navigationdrawer import MDNavigationDrawer
 from kivymd.uix.tab import MDTabs, MDTabsBase
@@ -86,21 +86,32 @@ class RV(RecycleView):
     def __init__(self, **kwargs):
         super(RV, self).__init__(**kwargs)
         self.data = [{'text': account} for account in view_accounts2()]
+        #self.icons = {account: account_pie(account) for account in view_accounts2()}
 
-        for account in view_accounts2():
+        """for account in view_accounts2():
             file = f"{account}.png"
             if not os.path.exists(f"account_pies/{file}"):
-                account_pie(account)
-            print(account)
-
-
-class RVButton(MDFlatButton):
-    pass
+                account_pie(account)"""
 
 
 class SwipeToGo(MDCardSwipe):
     text = StringProperty()
-    icon = "account_pies/Checking.png"
+    icons = {account: account_pie(account) for account in view_accounts2()}
+
+    def icon(self, inst):
+        print(inst)
+        return self.icons[inst]
+
+
+class SwipeButton(MDIconButton):
+    def icons(self, text):
+        if not text: # each time SwipeButton is instantiated it creates a blank instance, needs to be handled
+            return "language-python"
+        else:
+            print(f"self:\t{self}\tself.text:\t{text}")
+            return self.parent.parent.icons[text]
+
+
 
 
 # =====================================================AddAccount==============

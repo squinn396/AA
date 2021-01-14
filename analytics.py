@@ -21,13 +21,19 @@ def account_pie(account: str):
         p.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)', 'paper_bgcolor': 'rgba(0, 0, 0, 0)', })
         #p.show()
 
-        print(df)
-
         png_name = f"{account}.png"
+        png_path = f"account_pies/{png_name}"
 
         if not os.path.exists("account_pies"):
             os.mkdir("account_pies")
-        p.write_image(f"account_pies/{png_name}")
+        p.write_image(png_path)
+
+        print(f"Pie created for {account}!")
+        return png_path
+
+    else:
+        print(f'Using default icon for {account}')
+        return "chart-pie"
 
 
 if __name__ == "__main__":

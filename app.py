@@ -123,7 +123,6 @@ def account_page(accounts_list):
         allocations = get_allocations(select)
         name = account['name']
         id = account['account_id']
-        net_value = net(id)
         choice = 0
 
         def prompt():

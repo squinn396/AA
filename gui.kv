@@ -28,6 +28,7 @@
 
 
 <RV>:
+    id: rv
     viewclass: 'SwipeToGo'
     RecycleBoxLayout:
         default_size: None, dp(56)
@@ -36,13 +37,6 @@
         height: self.minimum_height
         orientation: 'vertical'
 
-<RVButton>:
-    on_release:
-        root.parent.parent.parent.parent.manager.transition.direction = "left" # transition left
-        app.root.ids.wm.add_account_screen(self.text)
-        app.root.ids.wm.current = 'account'
-        app.root.ids.wm.clear_home_screen()
-        app.root.ids.toolbar.title = self.text
 
 <SwipeToGo>:
     size_hint_y: None
@@ -56,7 +50,7 @@
         app.root.ids.wm.current = 'account'
         app.root.ids.wm.clear_home_screen()
         app.root.ids.toolbar.title = self.text
-        print(self.icon)
+        print("SwipeToGo icon:", self.icon)
 
     MDCardSwipeLayerBox:
         icon: "right arrow"
@@ -68,10 +62,12 @@
             id: content
             text: root.text
             _no_ripple_effect: True
-        MDIconButton:
-            icon: root.icon
+        SwipeButton:
+            text: root.text
+            icon: self.icons(self.text)
             padding_right: .5
-            on_release: # display full pie chart
+            on_release: print(f"Icon: {root.icons[self.text]}\t Text: {self.text}")  #print(root.parent.parent.icons[root.text])
+
 #=================================================ACCOUNT======================================================
 <AccountScreen>:
     id: 'account'
